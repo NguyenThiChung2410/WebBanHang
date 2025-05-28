@@ -8,7 +8,8 @@ namespace WebBanHang.Models
 {
     public class ApplicationUser:IdentityUser
     {
-        public string FullName { set; get; }
-        public DateTime Birthday { set; get; }
+        public string FullName {  get; set; }
+        public DateTime Birthday {  get; set; }
+        
     }
 }
