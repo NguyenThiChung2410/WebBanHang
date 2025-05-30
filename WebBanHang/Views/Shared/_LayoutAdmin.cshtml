@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebBanHang</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -18,13 +18,16 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                         
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                            </li>
+                        }
 
                     </ul>
                     <partial name="_LoginPartial"/>
@@ -33,6 +36,7 @@
         </nav>
     </header>
     <div class="container">
+        CHAO MUNG BAN DEN VOI TRANG QUAN TRI
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -40,7 +44,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - WebBanHang - <a asp-area="Admin" asp-controller="Product" asp-action="Index">Admin</a>
+            &copy; 2025 - WebBanHang - <a asp-area="Admin" asp-controller="Product" asp-action="Product">Product</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
